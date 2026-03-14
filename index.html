@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ηλιάνα Μπουμπαλίκη | Ψυχολόγος & Ψυχοθεραπεύτρια στο Αιγάλεω</title>
+    <meta name="description" content="Ανακαλύψτε έναν ασφαλή χώρο ψυχοθεραπείας στο Αιγάλεω. Η Ηλιάνα Μπουμπαλίκη προσφέρει συνθετική, συστημική και εικαστική θεραπεία. Κλείστε ραντεβού.">
+    <meta name="keywords" content="Ψυχολόγος Αιγάλεω, Συστημική Ψυχοθεραπεία, Συνθετική Ψυχοθεραπεία, Art Therapy, Ηλιάνα Μπουμπαλίκη, Κρίσεις Πανικού, Θεραπεία Ζεύγους">
+    <meta name="author" content="Advon Media">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="icon" href="https://github.com/agelmet/BOUBALIKI/blob/main/logobouba.jpg?raw=true" type="image/jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mind: {
+                            clay: '#E3D7D1',      /* Soft elegant clay/blush */
+                            claydark: '#D1C0B6',  /* Darker clay for hover */
+                            slate: '#2C3539',     /* Deep blue-grey for strong contrast */
+                            dust: '#F4F2EF',      /* Off-white warm background */
+                            mist: '#B8C5D6',      /* Soft dusty blue accent */
+                            dark: '#1A1C1E',      /* Almost black */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Cormorant Garamond', 'serif'],
+                    },
+                    boxShadow: {
+                        'elegant': '0 20px 40px -15px rgba(44, 53, 57, 0.08)',
+                        'floating': '0 30px 60px -20px rgba(0, 0, 0, 0.15)',
+                    },
+                    animation: {
+                        'float': 'float 8s ease-in-out infinite',
+                        'marquee': 'marquee 50s linear infinite',
+                        'kenburns-slow': 'kenburns 30s ease-out forwards',
+                        'fade-in-up': 'fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        kenburns: {
+                            '0%': { transform: 'scale(1.05) translateY(0)' },
+                            '100%': { transform: 'scale(1) translateY(2%)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #F4F2EF; color: #2C3539; }
+        
+        /* Smooth Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #F4F2EF; }
+        ::-webkit-scrollbar-thumb { background: #D1C0B6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #B8C5D6; }
+
+        /* Greek Uppercase fixes (No Accents) */
+        .no-accents { text-transform: uppercase; }
+
+        /* Reveal Animations */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Glassmorphism Navigation */
+        .nav-glass {
+            background: rgba(244, 242, 239, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(44, 53, 57, 0.05);
+        }
+
+        /* Image Masking & Effects */
+        .img-mask {
+            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+        }
+
+        /* Continuous Slow Pan for Portrait */
+        .portrait-pan {
+            animation: panImage 20s ease-in-out infinite alternate;
+        }
+        @keyframes panImage {
+            0% { transform: scale(1.1) translate(0, 0); }
+            100% { transform: scale(1.1) translate(-2%, 2%); }
+        }
+
+        /* Marquee */
+        .marquee-container { display: flex; width: 200%; }
+        .marquee-container:hover { animation-play-state: paused; }
+
+        /* Lightbox */
+        #lightbox {
+            opacity: 0; pointer-events: none; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        }
+        #lightbox.active { opacity: 1; pointer-events: auto; }
+        #lightbox img { transform: scale(0.95) translateY(20px); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); opacity: 0; }
+        #lightbox.active img { transform: scale(1) translateY(0); opacity: 1; }
+        
+        /* Line Clamp for reviews */
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-sans antialiased selection:bg-mind-mist selection:text-mind-dark">
+
+    <nav class="fixed w-full z-50 transition-all duration-500 py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="nav-glass rounded-full flex justify-between items-center px-4 py-2 shadow-sm transition-all duration-300 border border-white/50" id="nav-inner">
+                <a href="#" class="flex items-center gap-3 group pl-2" aria-label="Home">
+                    <div class="w-12 h-12 rounded-full overflow-hidden shadow-md border-2 border-white group-hover:scale-105 transition-transform duration-500">
+                        <img src="https://github.com/agelmet/BOUBALIKI/blob/main/logobouba.jpg?raw=true" alt="Ηλιάνα Μπουμπαλίκη Logo" class="w-full h-full object-cover">
+                    </div>
+                    <span class="font-serif text-xl font-medium tracking-wide text-mind-slate opacity-0 md:opacity-100 transition-opacity">Η. Μπουμπαλίκη</span>
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#about" class="text-sm font-medium text-mind-slate/70 hover:text-mind-slate transition-colors uppercase tracking-wider text-[11px]">Η ΨΥΧΟΛΟΓΟΣ</a>
+                    <a href="#services" class="text-sm font-medium text-mind-slate/70 hover:text-mind-slate transition-colors uppercase tracking-wider text-[11px]">ΥΠΗΡΕΣΙΕΣ</a>
+                    <a href="#approach" class="text-sm font-medium text-mind-slate/70 hover:text-mind-slate transition-colors uppercase tracking-wider text-[11px]">ΠΡΟΣΕΓΓΙΣΗ</a>
+                    <a href="#space" class="text-sm font-medium text-mind-slate/70 hover:text-mind-slate transition-colors uppercase tracking-wider text-[11px]">Ο ΧΩΡΟΣ</a>
+                    <a href="#reviews" class="text-sm font-medium text-mind-slate/70 hover:text-mind-slate transition-colors uppercase tracking-wider text-[11px]">ΕΜΠΕΙΡΙΕΣ</a>
+                    
+                    <a href="https://www.doctoranytime.gr/d/Psychologos/mpoumpaliki-iliana?autobook=1&acdpid=76957&autobook-dpid=76957&utm_source=gmb&utm_medium=organic&utm_campaign=actionscenter&rwg_token=AFd1xnHC3S24pG1M4zFSVbuXIOL0PqORDKChvW4NfWKLx3P_AflEMfVBrbUQIwDHYSRRRtrHCQbTeqJ4FgeL1hXPikuXY0m5sw%3D%3D&source=cat" target="_blank" class="px-7 py-3 bg-mind-slate text-white rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-mind-mist hover:text-mind-slate transition-all duration-300 flex items-center gap-2">
+                        <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="DA" class="h-3 filter brightness-0 invert">
+                        ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ
+                    </a>
+                </div>
+
+                <button class="lg:hidden p-2 text-mind-slate focus:outline-none" id="mobile-menu-btn" aria-label="Menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="fixed inset-0 bg-mind-dust/98 backdrop-blur-3xl z-40 hidden flex-col items-center justify-center space-y-8 opacity-0 transition-opacity duration-300 pt-20">
+            <button id="close-mobile-menu" class="absolute top-8 right-8 text-mind-slate p-2">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <a href="#about" class="text-2xl font-serif text-mind-slate mobile-link">Η Ψυχολόγος</a>
+            <a href="#services" class="text-2xl font-serif text-mind-slate mobile-link">Υπηρεσίες</a>
+            <a href="#approach" class="text-2xl font-serif text-mind-slate mobile-link">Προσέγγιση</a>
+            <a href="#space" class="text-2xl font-serif text-mind-slate mobile-link">Ο Χώρος</a>
+            <a href="#reviews" class="text-2xl font-serif text-mind-slate mobile-link">Εμπειρίες</a>
+            <a href="https://www.doctoranytime.gr/d/Psychologos/mpoumpaliki-iliana?autobook=1&acdpid=76957&autobook-dpid=76957" target="_blank" class="mt-8 px-10 py-4 bg-mind-slate text-white rounded-full text-sm font-bold tracking-widest uppercase mobile-link">ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ</a>
+        </div>
+    </nav>
+
+    <section class="relative h-screen w-full overflow-hidden bg-mind-dark">
+        <div class="absolute inset-0 z-0">
+            <img src="https://github.com/agelmet/BOUBALIKI/blob/main/8910F7DE-F14B-4D3D-9925-1EE430C04C00.JPG?raw=true" alt="Ηλιάνα Μπουμπαλίκη" class="w-full h-full object-cover object-[center_30%] animate-kenburns-slow opacity-80">
+        </div>
+
+        <div class="absolute inset-0 z-10 bg-gradient-to-b from-mind-dark/30 via-transparent to-mind-dark/90"></div>
+        <div class="absolute inset-0 z-10 bg-gradient-to-t from-mind-dark via-transparent to-transparent h-[60%] top-auto bottom-0"></div>
+
+        <div class="absolute inset-0 z-20 flex flex-col justify-end items-center pb-20 px-6 max-w-5xl mx-auto text-center">
+            <div class="animate-fade-in-up">
+                <span class="block text-mind-clay text-sm md:text-base tracking-[0.2em] uppercase font-medium mb-6">Ψυχολογος - Ψυχοθεραπευτρια</span>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white leading-tight mb-6 drop-shadow-2xl">
+                    Θεραπεύοντας μέσα από τις Σχέσεις & τη <i class="text-mind-mist font-light">Δημιουργία</i>
+                </h1>
+                <p class="text-white/80 text-lg md:text-xl font-light max-w-2xl mx-auto mb-10 drop-shadow-md">
+                    Συστημική & Συνθετική Ψυχοθεραπεία στο Αιγάλεω. Ένας ασφαλής χώρος για να κατανοήσετε, να επεξεργαστείτε και να εξελιχθείτε.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="https://www.doctoranytime.gr/d/Psychologos/mpoumpaliki-iliana?autobook=1&acdpid=76957&autobook-dpid=76957" target="_blank" class="px-10 py-4 bg-mind-clay text-mind-slate rounded-full text-sm font-bold uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 shadow-floating flex items-center gap-3">
+                        ΞΕΚΙΝΗΣΤΕ ΣΗΜΕΡΑ
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center opacity-60 animate-bounce">
+            <span class="text-white text-[10px] uppercase tracking-widest mb-2">SCROLL</span>
+            <div class="w-[1px] h-8 bg-white/50"></div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 px-6 bg-mind-dust relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-mind-clay/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/3 z-0"></div>
+
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center relative z-10">
+            <div class="lg:col-span-5 relative reveal">
+                <div class="aspect-[3/4] rounded-t-[180px] rounded-b-[40px] overflow-hidden shadow-elegant relative z-10 border-8 border-white">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/IMG_5055.jpg?raw=true" alt="Ηλιάνα Μπουμπαλίκη Ψυχολόγος" class="w-full h-full object-cover portrait-pan">
+                </div>
+                <div class="absolute -bottom-10 -left-10 w-full h-full rounded-t-[180px] rounded-b-[40px] border border-mind-slate/10 z-0"></div>
+            </div>
+
+            <div class="lg:col-span-7 reveal delay-200">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-[1px] bg-mind-slate"></div>
+                    <span class="text-sm font-bold tracking-widest uppercase text-mind-slate">ΓΝΩΡΙΜΙΑ</span>
+                </div>
+                
+                <h2 class="text-4xl lg:text-5xl font-serif text-mind-slate mb-8 leading-tight">
+                    Ηλιάνα Μπουμπαλίκη <br>
+                    <span class="text-2xl font-sans font-light text-mind-slate/70 mt-2 block">Ψυχολόγος (Αρ. Αδείας: 1311840)</span>
+                </h2>
+
+                <div class="space-y-6 text-lg text-mind-slate/80 font-light leading-relaxed">
+                    <p>
+                        Η Ηλιάνα Μπουμπαλίκη διατηρεί το ιδιωτικό της γραφείο στο Αιγάλεω. Διαθέτει ισχυρό ακαδημαϊκό υπόβαθρο, όντας κάτοχος πτυχίου Ψυχολογίας (BSc) από το <strong class="font-medium text-mind-slate">University of East London</strong> και Μεταπτυχιακού (Master) στη Συνθετική Ψυχοθεραπεία από το City Unity College. Παράλληλα, έχει ολοκληρώσει εκτενή εκπαίδευση στη Συστημική Ψυχοθεραπεία στο κέντρο «Περί Ψυχής».
+                    </p>
+                    <p>
+                        Η κλινική της εμπειρία έχει σφυρηλατηθεί σε απαιτητικά πλαίσια ψυχικής υγείας και αποκατάστασης (ΠΕΨΑΕΕ, Atypical Center, Ελληνικό Κέντρο Vojta). Αυτή η πορεία της έχει διδάξει την αξία της εξατομικευμένης φροντίδας, αντιμετωπίζοντας τον κάθε άνθρωπο με βαθύ σεβασμό στη μοναδικότητά του.
+                    </p>
+                    <p>
+                        Εμπλουτίζοντας διαρκώς τα θεραπευτικά της εργαλεία, εκπαιδεύεται στο <strong class="font-medium text-mind-slate">Art Therapy</strong> (Εικαστική Ψυχοθεραπεία). Στο γραφείο της, αναλαμβάνει ατομικές, ομαδικές, οικογενειακές συνεδρίες και θεραπείες ζεύγους, δημιουργώντας έναν ασφαλή και δημιουργικό χώρο όπου το άτομο μπορεί να κατανοήσει τα συστήματα στα οποία ανήκει, να επεξεργαστεί τα τραύματά του και να χτίσει μια αυθεντική ζωή.
+                    </p>
+                </div>
+
+                <div class="mt-12 flex flex-wrap gap-4">
+                    <span class="px-5 py-2 border border-mind-slate/20 rounded-full text-sm text-mind-slate bg-white/50 backdrop-blur-sm">BSc Psychology</span>
+                    <span class="px-5 py-2 border border-mind-slate/20 rounded-full text-sm text-mind-slate bg-white/50 backdrop-blur-sm">MSc Συνθετική Ψυχοθεραπεία</span>
+                    <span class="px-5 py-2 border border-mind-slate/20 rounded-full text-sm text-mind-slate bg-white/50 backdrop-blur-sm">Συστημική Οικογενειακή</span>
+                    <span class="px-5 py-2 border border-mind-slate/20 rounded-full text-sm text-mind-slate bg-white/50 backdrop-blur-sm">Art Therapy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 px-6 bg-white relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <span class="text-sm font-bold tracking-widest uppercase text-mind-mist mb-4 block">ΕΞΕΙΔΙΚΕΥΣΕΙΣ</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-mind-slate">Υπηρεσίες & Παρεμβάσεις</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="group relative bg-mind-dust p-10 lg:p-12 rounded-3xl overflow-hidden hover:shadow-elegant transition-all duration-500 reveal">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-mind-clay opacity-0 group-hover:opacity-20 rounded-bl-full transition-opacity duration-500"></div>
+                    <i data-lucide="sparkles" class="w-10 h-10 text-mind-slate mb-8"></i>
+                    <h3 class="text-2xl font-serif text-mind-slate mb-4">Ατομική Ψυχοθεραπεία, Άγχος & Γυναικεία Ενδυνάμωση</h3>
+                    <p class="text-mind-slate/70 font-light leading-relaxed mb-6">
+                        Ένα ταξίδι προσωπικής ανακάλυψης. Μέσα από τον συνδυασμό της Συνθετικής και Συστημικής ματιάς, αποκωδικοποιούμε τα μοτίβα που πυροδοτούν τις κρίσεις πανικού, τις ειδικές φοβίες και το καθημερινό άγχος. Εργαζόμαστε συστηματικά για τη βελτίωση της αυτοεικόνας και τη διεκδίκηση των θέλω σας, με έμφαση στη γυναικεία ενδυνάμωση.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΕΝΗΛΙΚΕΣ (60')</span>
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΚΡΙΣΕΙΣ ΠΑΝΙΚΟΥ</span>
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΕΝΔΥΝΑΜΩΣΗ</span>
+                    </div>
+                </div>
+
+                <div class="group relative bg-mind-dust p-10 lg:p-12 rounded-3xl overflow-hidden hover:shadow-elegant transition-all duration-500 reveal delay-100">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-mind-mist opacity-0 group-hover:opacity-20 rounded-bl-full transition-opacity duration-500"></div>
+                    <i data-lucide="users" class="w-10 h-10 text-mind-slate mb-8"></i>
+                    <h3 class="text-2xl font-serif text-mind-slate mb-4">Συστημική Οικογενειακή Θεραπεία & Ζεύγος</h3>
+                    <p class="text-mind-slate/70 font-light leading-relaxed mb-6">
+                        Στη Συστημική θεωρία, το σύμπτωμα συχνά ανήκει στη "σχέση" και όχι αποκλειστικά στο άτομο. Ως εξειδικευμένη Συστημική Θεραπεύτρια, παρέχω τον χώρο σε ζευγάρια και οικογένειες να ακούσουν πραγματικά ο ένας τον άλλον, δουλεύοντας πάνω στην επίλυση συγκρούσεων και την αποκατάσταση της εμπιστοσύνης.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΟΙΚΟΓΕΝΕΙΑ (60')</span>
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΖΕΥΓΟΣ</span>
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΕΠΙΚΟΙΝΩΝΙΑ</span>
+                    </div>
+                </div>
+
+                <div class="group relative bg-mind-dust p-10 lg:p-12 rounded-3xl overflow-hidden hover:shadow-elegant transition-all duration-500 reveal">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-mind-clay opacity-0 group-hover:opacity-20 rounded-bl-full transition-opacity duration-500"></div>
+                    <i data-lucide="palette" class="w-10 h-10 text-mind-slate mb-8"></i>
+                    <h3 class="text-2xl font-serif text-mind-slate mb-4">Παιδιά, Έφηβοι & Art Therapy (Εικαστική Θεραπεία)</h3>
+                    <p class="text-mind-slate/70 font-light leading-relaxed mb-6">
+                        Όταν οι λέξεις δεν αρκούν για να περιγράψουν τον συναισθηματικό πόνο, η Τέχνη γίνεται η φωνή μας. Μέσω του Art Therapy, τα παιδιά και οι έφηβοι εκφράζουν συναισθήματα, άγχη και συγκρούσεις χρησιμοποιώντας χρώματα και υλικά, σε ένα πλαίσιο απόλυτα ελεύθερο από επικρίσεις και προσδοκίες.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΠΑΙΔΙΑ & ΕΦΗΒΟΙ (60')</span>
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ART THERAPY</span>
+                    </div>
+                </div>
+
+                <div class="group relative bg-mind-dust p-10 lg:p-12 rounded-3xl overflow-hidden hover:shadow-elegant transition-all duration-500 reveal delay-100">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-mind-mist opacity-0 group-hover:opacity-20 rounded-bl-full transition-opacity duration-500"></div>
+                    <i data-lucide="heart-handshake" class="w-10 h-10 text-mind-slate mb-8"></i>
+                    <h3 class="text-2xl font-serif text-mind-slate mb-4">Συμπεριληπτική Θεραπεία (ΛΟΑΤΚΙ+) & Ευελιξία</h3>
+                    <p class="text-mind-slate/70 font-light leading-relaxed mb-6">
+                        Η αποδοχή είναι ο πυρήνας της ψυχικής υγείας. Το γραφείο λειτουργεί ως ένας επιβεβαιωτικός χώρος (affirmative safe space) για την ΛΟΑΤΚΙ+ κοινότητα. Παρέχονται επίσης διαδικτυακές συνεδρίες, ενώ υποστηρίζεται η πρόσβαση των νέων μέσω ειδικής τιμολογιακής πολιτικής για φοιτητές.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mt-auto">
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΛΟΑΤΚΙ+ SAFE SPACE</span>
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ONLINE</span>
+                        <span class="text-xs uppercase tracking-wider font-semibold text-mind-slate/50 bg-white px-3 py-1 rounded-md shadow-sm">ΦΟΙΤΗΤΙΚΟ</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="approach" class="py-32 px-6 bg-mind-slate text-mind-dust relative overflow-hidden">
+        <div class="absolute -left-40 top-1/4 w-96 h-96 bg-mind-mist/10 rounded-full blur-[100px] z-0"></div>
+        <div class="absolute -right-20 bottom-0 w-80 h-80 bg-mind-clay/10 rounded-full blur-[80px] z-0"></div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-20 text-center reveal">
+                <span class="text-mind-mist font-bold tracking-widest text-sm uppercase">Η ΦΙΛΟΣΟΦΙΑ ΜΟΥ</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-white mt-4">Η Θεραπευτική μου Ταυτότητα</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-8 border border-white/10 rounded-3xl hover:bg-white/5 transition-colors duration-300 reveal">
+                    <i data-lucide="brain-circuit" class="w-10 h-10 text-mind-clay mb-6"></i>
+                    <h4 class="text-xl font-serif text-white mb-4">Ο Συνδυασμός Συστημικής & Συνθετικής</h4>
+                    <p class="text-white/60 font-light text-sm leading-relaxed">
+                        Δεν προσαρμόζω εσάς σε μια θεωρία, αλλά τη θεωρία σε εσάς. Η Συνθετική ματιά δανείζεται τα καλύτερα εργαλεία, ενώ η Συστημική βλέπει τη "μεγάλη εικόνα" των σχέσεών σας.
+                    </p>
+                </div>
+
+                <div class="p-8 border border-white/10 rounded-3xl hover:bg-white/5 transition-colors duration-300 reveal delay-100 md:mt-8">
+                    <i data-lucide="brush" class="w-10 h-10 text-mind-mist mb-6"></i>
+                    <h4 class="text-xl font-serif text-white mb-4">Η Δύναμη της Τέχνης</h4>
+                    <p class="text-white/60 font-light text-sm leading-relaxed">
+                        Η εκπαίδευσή μου στο Art Therapy προσφέρει μια μοναδική, δημιουργική διέξοδο σε ενήλικες και παιδιά που δυσκολεύονται να εκφράσουν τα μπλοκαρίσματά τους μόνο με τον λόγο.
+                    </p>
+                </div>
+
+                <div class="p-8 border border-white/10 rounded-3xl hover:bg-white/5 transition-colors duration-300 reveal delay-200">
+                    <i data-lucide="building-2" class="w-10 h-10 text-mind-clay mb-6"></i>
+                    <h4 class="text-xl font-serif text-white mb-4">Πλούσιο Κλινικό Υπόβαθρο</h4>
+                    <p class="text-white/60 font-light text-sm leading-relaxed">
+                        Η εργασία μου σε φορείς όπως η ΠΕΨΑΕΕ με έφερε αντιμέτωπη με σοβαρά, πραγματικά περιστατικά αποκατάστασης, θωρακίζοντας την κλινική μου κρίση.
+                    </p>
+                </div>
+
+                <div class="p-8 border border-white/10 rounded-3xl hover:bg-white/5 transition-colors duration-300 reveal delay-300 md:mt-8">
+                    <i data-lucide="network" class="w-10 h-10 text-mind-mist mb-6"></i>
+                    <h4 class="text-xl font-serif text-white mb-4">Ολιστική Αντιμετώπιση</h4>
+                    <p class="text-white/60 font-light text-sm leading-relaxed">
+                        Είτε πρόκειται για ατομική, ομαδική, είτε για θεραπεία ζεύγους, αναλαμβάνω το σύστημα στο σύνολό του, προάγοντας την αυθεντική επικοινωνία σε κάθε επίπεδο.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="space" class="py-32 px-6 bg-mind-dust">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <span class="text-sm font-bold tracking-widest uppercase text-mind-slate/50 mb-4 block">ΠΕΡΙΒΑΛΛΟΝ</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-mind-slate">Ο Χώρος Θεραπείας</h2>
+                <p class="text-mind-slate/70 mt-4 max-w-2xl mx-auto font-light">Ένας χώρος ζεστός, προσεκτικά σχεδιασμένος για να σας προσφέρει την απαραίτητη ηρεμία, ασφάλεια και ιδιωτικότητα.</p>
+            </div>
+
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_rdm7yirdm7yirdm7-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_rdm7yirdm7yirdm7-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal delay-100" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_b3yt30b3yt30b3yt-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_b3yt30b3yt30b3yt-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal delay-200" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_ag51c5ag51c5ag51-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_ag51c5ag51c5ag51-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_92mjz092mjz092mj-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_92mjz092mjz092mj-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal delay-100" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_8ykb6w8ykb6w8ykb-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_8ykb6w8ykb6w8ykb-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal delay-200" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_ld5rmild5rmild5r-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_ld5rmild5rmild5r-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_z19jrwz19jrwz19j-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_z19jrwz19jrwz19j-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal delay-100" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_pf4wx4pf4wx4pf4w-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_pf4wx4pf4wx4pf4w-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal delay-200" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_7ll8rp7ll8rp7ll8-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_7ll8rp7ll8rp7ll8-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_3ds7io3ds7io3ds7-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_3ds7io3ds7io3ds7-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal delay-100" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_lyl8dwlyl8dwlyl8-2.png?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/Gemini_Generated_Image_lyl8dwlyl8dwlyl8-2.png?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+                <div class="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-zoom-in reveal delay-200" onclick="openLightbox('https://github.com/agelmet/BOUBALIKI/blob/main/okok.jpg?raw=true')">
+                    <img src="https://github.com/agelmet/BOUBALIKI/blob/main/okok.jpg?raw=true" alt="Χώρος" class="w-full h-auto transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-mind-slate/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <i data-lucide="expand" class="text-white w-8 h-8"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-mind-slate/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
+        <button class="absolute top-8 right-8 text-white/50 hover:text-white transition-colors" aria-label="Close">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-[95vw] max-h-[95vh] object-contain rounded-lg shadow-2xl cursor-default" onclick="event.stopPropagation()">
+    </div>
+
+    <section id="reviews" class="py-32 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 mb-16 text-center reveal">
+            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime Logo" class="h-8 mx-auto mb-6 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
+            <h2 class="text-4xl md:text-5xl font-serif text-mind-slate mb-4">Εμπειρίες & Αξιολογήσεις</h2>
+            <p class="text-mind-slate/60 font-light max-w-lg mx-auto">Η εμπιστοσύνη σας είναι η μεγαλύτερη επιβράβευση και απόδειξη της θεραπευτικής μας δουλειάς.</p>
+        </div>
+
+        <div class="w-full overflow-hidden relative pb-10">
+            <div class="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+            
+            <div class="marquee-container animate-marquee" id="review-track">
+                <div class="flex space-x-6 px-3" id="review-content">
+                    
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">10.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Πολύ ευχάριστη και καταρτισμένη. Εκπέμπει εμπιστοσύνη και διερευνά σε βάθος την περίπτωση καθώς και είναι καθοδηγητική και με κατανόηση."</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">Καρούνια</p>
+                            <p class="text-xs text-mind-slate/50">03 Μαρ 2026 • 2 αξιολογήσεις</p>
+                        </div>
+                    </div>
+                    
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">10.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Εξαιρετική ψυχολόγος καλός ανθρωπος που ξερει το αντικείμενο της και σε ακούει προσεχτικά"</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">Βασίλης</p>
+                            <p class="text-xs text-mind-slate/50">25 Φεβ 2026 • 2 αξιολογήσεις</p>
+                        </div>
+                    </div>
+
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">10.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Τρομερή επαγγελματίας, με έκανε να αισθανθώ πολύ άνετα παρόλο που ήταν η πρώτη μου ψυχοθεραπεία και εμβάθυνε στο πρόβλημα μου!!!"</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">Κωνσταντίνος</p>
+                            <p class="text-xs text-mind-slate/50">27 Ιαν 2026 • 2 αξιολογήσεις</p>
+                        </div>
+                    </div>
+
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 text-mind-slate/20"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">8.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Προσιτή κι επαγγελματίας. Χαμογελαστή κι έδειξε ενδιαφέρον για την περίπτωση μου"</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">Μαργαρίτα</p>
+                            <p class="text-xs text-mind-slate/50">24 Οκτ 2025 • 2 αξιολογήσεις</p>
+                        </div>
+                    </div>
+
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">10.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Η Ηλιάνα είναι επαγγελματίας! Νιώθω απόλυτα άνετα μαζί της, να μοιραστώ οτιδήποτε. Με βοηθάει πολύ γι'αυτό και δε την αλλάζω..."</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">ΜΑΡΙΑ</p>
+                            <p class="text-xs text-mind-slate/50">22 Ιουλ 2025 • 8 αξιολογήσεις</p>
+                        </div>
+                    </div>
+
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">10.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Εξαιρετική, άψογη και επαγγελματίας. Σου εμπνέει σιγουριά και εμπιστοσύνη, και εξεταζει την κάθε περίπτωση όπως χρειάζεται."</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">Βικυ</p>
+                            <p class="text-xs text-mind-slate/50">28 Απρ 2025 • 4 αξιολογήσεις</p>
+                        </div>
+                    </div>
+
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">10.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Κάνω συνεδρίες με την Ηλιάνα από πέρσι. Με βοηθάει πολύ. Δε την αλλάζω"</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">ΜΑΡΙΑ</p>
+                            <p class="text-xs text-mind-slate/50">14 Ιαν 2025 • 8 αξιολογήσεις</p>
+                        </div>
+                    </div>
+                    
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">10.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Εξαιρετική και σωστή επαγγελματίας! Σας την συστήνω ανεπιφύλακτα!"</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">Βικυ</p>
+                            <p class="text-xs text-mind-slate/50">15 Νοε 2024 • 4 αξιολογήσεις</p>
+                        </div>
+                    </div>
+
+                    <div class="w-80 bg-mind-dust p-8 rounded-[2rem] shadow-sm shrink-0 border border-mind-slate/5">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <div class="flex items-center gap-1 text-[#F4C150] mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-bold text-mind-slate text-xl">10.0</span>
+                            </div>
+                            <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" class="h-4 opacity-40" alt="DA">
+                        </div>
+                        <p class="text-mind-slate/80 text-sm mb-6 italic font-light line-clamp-3">"Εξαιρετική, κέρδισε την εμπιστοσύνη μου από την πρώτη στιγμή, ένιωσα άνετα και οικεία μαζί της, με βοηθάει πολύ."</p>
+                        <div class="border-t border-mind-slate/10 pt-4">
+                            <p class="text-xs font-bold text-mind-slate uppercase tracking-wider">Κυριακή</p>
+                            <p class="text-xs text-mind-slate/50">18 Απρ 2024 • 4 αξιολογήσεις</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://www.doctoranytime.gr/d/Psychologos/mpoumpaliki-iliana" target="_blank" class="inline-flex items-center gap-2 text-mind-slate font-semibold hover:text-mind-mist transition-colors uppercase text-sm tracking-wider border-b border-current pb-1">
+                    ΔΙΑΒΑΣΤΕ ΟΛΕΣ ΤΙΣ ΑΞΙΟΛΟΓΗΣΕΙΣ
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-mind-slate text-white pt-24 pb-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] transform translate-x-1/3 -translate-y-1/3 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-12 mb-20">
+                
+                <div class="lg:col-span-5 reveal">
+                    <a href="#" class="inline-block mb-8">
+                        <div class="w-16 h-16 rounded-full overflow-hidden shadow-md border-2 border-white/20">
+                            <img src="https://github.com/agelmet/BOUBALIKI/blob/main/logobouba.jpg?raw=true" alt="Ηλιάνα Μπουμπαλίκη Logo" class="w-full h-full object-cover">
+                        </div>
+                    </a>
+                    <h3 class="text-3xl font-serif mb-6">Ηλιάνα Μπουμπαλίκη</h3>
+                    <p class="text-white/60 font-light max-w-sm mb-8">
+                        Η επούλωση ξεκινά με ένα βήμα. Επικοινωνήστε για να ορίσουμε την πρώτη σας συνεδρία σε ένα περιβάλλον απόλυτης αποδοχής.
+                    </p>
+                    <a href="https://www.doctoranytime.gr/d/Psychologos/mpoumpaliki-iliana?autobook=1&acdpid=76957&autobook-dpid=76957" target="_blank" class="inline-flex items-center justify-center bg-white text-mind-slate px-8 py-4 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-mind-mist transition-colors duration-300">
+                        <img src="https://www.doctoranytime.gr/images/logo-rebranding.svg" alt="Doctoranytime" class="h-4 mr-3 filter brightness-0">
+                        ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ
+                    </a>
+                </div>
+
+                <div class="lg:col-span-3 lg:col-start-7 reveal delay-100">
+                    <h4 class="text-sm font-bold text-mind-mist mb-6 uppercase tracking-wider">ΣΤΟΙΧΕΙΑ ΕΠΙΚΟΙΝΩΝΙΑΣ</h4>
+                    <ul class="space-y-6 text-white/70 font-light">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-mind-clay shrink-0 mt-0.5"></i>
+                            <span>Ζήνωνος 38, <br>Αιγάλεω, Αττική</span>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="phone" class="w-5 h-5 text-mind-clay shrink-0"></i>
+                            <a href="tel:+306987894590" class="hover:text-white transition-colors text-lg tracking-wider">698 789 4590</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 reveal delay-200">
+                    <h4 class="text-sm font-bold text-mind-mist mb-6 uppercase tracking-wider">ΩΡΑΡΙΟ ΛΕΙΤΟΥΡΓΙΑΣ</h4>
+                    <ul class="space-y-4 text-white/70 font-light">
+                        <li class="flex items-center gap-4">
+                            <i data-lucide="clock" class="w-5 h-5 text-mind-clay shrink-0"></i>
+                            <span>ΔΕΥΤΕΡΑ - ΣΑΒΒΑΤΟ</span>
+                        </li>
+                        <li class="pl-9 text-mind-clay font-medium italic">Κατόπιν Ραντεβού</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 reveal">
+                <p class="text-white/40 text-xs tracking-wider uppercase">© 2026 ΗΛΙΑΝΑ ΜΠΟΥΜΠΑΛΙΚΗ. ALL RIGHTS RESERVED.</p>
+                <p class="text-white/40 text-xs tracking-wider uppercase">
+                    DESIGNED BY <a href="https://advonmedia.com" target="_blank" rel="noopener" class="text-white font-bold hover:text-mind-mist transition-colors">ADVON MEDIA</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 2. Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('opacity-0');
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // 3. Navbar Scroll Effect (Glass shrinking)
+        const navInner = document.getElementById('nav-inner');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navInner.classList.add('py-1');
+                navInner.classList.remove('py-2');
+                navInner.classList.add('shadow-md');
+            } else {
+                navInner.classList.add('py-2');
+                navInner.classList.remove('py-1');
+                navInner.classList.remove('shadow-md');
+            }
+        });
+
+        // 4. Scroll Reveal Animations via Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // 5. Lightbox Functionality (Vanilla JS)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        window.openLightbox = function(imageSrc) {
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        window.closeLightbox = function() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightboxImg.src = '';
+                document.body.style.overflow = '';
+            }, 500);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+        // 6. Infinite Marquee Duplicate
+        const reviewContent = document.getElementById('review-content');
+        if(reviewContent) {
+            const clone = reviewContent.cloneNode(true);
+            document.getElementById('review-track').appendChild(clone);
+        }
+    </script>
+</body>
+</html>
